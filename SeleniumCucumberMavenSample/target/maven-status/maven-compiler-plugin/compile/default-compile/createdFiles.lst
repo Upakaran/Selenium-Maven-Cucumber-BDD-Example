@@ -1,0 +1,6 @@
+stepDefinition\StepsNew.class
+utilities\BrowserUtility.class
+stepDefinition\TestHooks.class
+utilities\ExcelOperationsFillo.class
+stepDefinition\Steps.class
+utilities\PropertiesFileReader.class

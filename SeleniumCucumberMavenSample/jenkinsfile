@@ -1,0 +1,29 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Compile Stage') { 
+            steps {
+               withMaven(maven : 'Apache Maven 3.6.1'){
+			   echo "maven clean"
+               bat "mvn -f ./SeleniumCucumberMavenSample/pom.xml clean compile"
+               }
+            }
+        }
+        stage('Testing stage') { 
+            steps {
+               withMaven(maven : 'Apache Maven 3.6.1'){
+			   echo "maven test"
+                bat "mvn -f ./SeleniumCucumberMavenSample/pom.xml test"
+               }
+            }
+        }
+        stage('Deployment stage') { 
+            steps {
+               withMaven(maven : 'Apache Maven 3.6.1'){
+			    echo "maven deploy"
+                 bat "mvn -f ./SeleniumCucumberMavenSample/pom.xml clean deploy -Dmaven.test.skip=true"
+               }
+            }
+        }
+    }
+}
