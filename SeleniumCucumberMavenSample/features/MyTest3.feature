@@ -1,6 +1,12 @@
 @TestCase3
 Feature: Basic functionality on login page of Application using data-table
 
+@ExtentSetup
+Scenario: Create Extent Report
+Given Create an extent report to be used for this feature
+| TestName |
+| TestCase3 |
+
 @TestCase3_Scenario1
 Scenario: Verification of entering credentials in login page 
 
@@ -14,6 +20,10 @@ When Enter the Username	and password using datatable
 
 Then Reset the credential
 
+And Verify that both username and password is reset
 
 
+@ExtentSetup
+Scenario: Flush Extent Report
+Given Flush the extent report to be used for this feature
 

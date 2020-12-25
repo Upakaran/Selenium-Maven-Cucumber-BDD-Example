@@ -1,6 +1,12 @@
 @TestCase1
 Feature: Basic functionality on login page of Application 
 
+@ExtentSetup
+Scenario: Create Extent Report
+Given Create an extent report to be used for this feature
+| TestName |
+| TestCase1 |
+
 @TestCase1_Scenario1
 Scenario Outline: Verification of Reset button 
 
@@ -30,3 +36,7 @@ When Click on Selenium Dropdown
 And select flash movie demo		
 
 Then verify the page title
+
+@ExtentSetup
+Scenario: Flush Extent Report
+Given Flush the extent report to be used for this feature

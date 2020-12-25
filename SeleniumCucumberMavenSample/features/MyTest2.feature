@@ -1,6 +1,12 @@
 @TestCase2
 Feature: Secondary functionality on login page of Application 
 
+@ExtentSetup
+Scenario: Create Extent Report
+Given Create an extent report to be used for this feature
+| TestName |
+| TestCase2 |
+
 @TestCase2_Scenario1
 Scenario Outline: Verification of Login button 
 
@@ -41,4 +47,6 @@ Examples:
 | Page1 |
 | Page6 |
 
-
+@ExtentSetup
+Scenario: Flush Extent Report
+Given Flush the extent report to be used for this feature

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.DataTable;
@@ -30,6 +31,15 @@ public class Steps {
 			System.out.println("launching browser");
 			driver = BrowserUtility.LaunchBrowser(propertiesFileReader.getUserDefinedProperty("browser.name"));
 		}
+		/*try 
+	    { 
+	        driver.switchTo().alert().accept();
+	        
+	    }   
+	    catch (NoAlertPresentException e) 
+	    { 
+	        System.out.println(e.getMessage());
+	    }*/
 		driver.navigate().to(propertiesFileReader.getUserDefinedProperty("browser.baseURL"));
 
 	}
@@ -53,6 +63,19 @@ public class Steps {
 	public void Reset_the_credential() throws Throwable {
 		System.out.println("This step click on the Reset button.");
 		driver.findElement(By.name("btnReset")).click();
+	}
+	
+	@Then("^Verify that both username and password is reset$")
+	public void verify_that_both_username_and_password_is_reset() throws Throwable {
+	    String usernameResetActual = driver.findElement(By.name("uid")).getText();
+	    String passwordResetActual = driver.findElement(By.name("password")).getText();
+	  //  System.out.println("usernameResetActual is "+usernameResetActual);
+	  //  System.out.println("passwordResetActual is "+passwordResetActual);
+	    propertiesFileReader = new PropertiesFileReader();
+	    String usernameResetExpected = propertiesFileReader.getUserDefinedProperty("demoSite.usernameResetExpected");
+	    String passwordResetExpected = propertiesFileReader.getUserDefinedProperty("demoSite.passwordResetExpected");
+	    Assert.assertEquals(usernameResetExpected, usernameResetActual);
+	    Assert.assertEquals(passwordResetExpected, passwordResetActual);
 	}
 
 	@When("^Click on Selenium Dropdown$")
@@ -139,7 +162,7 @@ public class Steps {
 		String expectedAlertText = propertiesFileReader.getUserDefinedProperty("demoSite.loginUnsuccessfulAlert");
 		System.out.println("Actual alert is " + actualAlertText);
 		System.out.println("Expected alert is " + expectedAlertText);
-		Assert.assertEquals(expectedAlertText, expectedAlertText);
+		Assert.assertEquals(expectedAlertText, actualAlertText);
 		Thread.sleep(2000);
 		alert.accept();
 	}
@@ -165,6 +188,6 @@ public class Steps {
 			System.out.println();
 		}
 	}
-
+	
 
 }

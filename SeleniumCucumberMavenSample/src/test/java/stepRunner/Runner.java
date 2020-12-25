@@ -13,7 +13,7 @@ import utilities.PropertiesFileReader;
 
 @CucumberOptions(features = "features", 
 glue = { "stepDefinition" },
-tags = {"@TestCase4"}, 
+//tags = {"@TestCase3"}, 
 plugin = {"pretty","html:target/site/cucumber-pretty","json:target/site/cucumber.json"},
 monochrome = true)
 
@@ -31,7 +31,8 @@ public class Runner {
 	public static void afterClass() {
 
 		BrowserUtility.exitBrowser();
-
+		
 	}
-
+	
+		
 }

@@ -49,8 +49,8 @@ public class BrowserUtility {
 				driver = new ChromeDriver(options);
 				driver.manage().window().maximize();
 				driver.manage().deleteAllCookies();
-				driver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
-				driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+				driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 				Thread.sleep(2000);
 			}
 			
