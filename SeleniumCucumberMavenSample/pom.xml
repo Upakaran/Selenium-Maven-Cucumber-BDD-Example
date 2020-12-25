@@ -167,4 +167,15 @@
 
 
 	</dependencies>
+	
+	<!-- for Jenkins deployment stage, mvn clean -->
+
+	<distributionManagement>
+		<repository>
+			<id>SeleniumCucumberMavenSample</id>
+			<name>SeleniumCucumberMavenSample</name>
+			<url>file:///C:/Users/Kaushik/.m2/repository/</url>
+		</repository>
+	</distributionManagement>
+	
 </project>
