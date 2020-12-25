@@ -38,6 +38,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
+				
 					<!-- <suiteXmlFiles> <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile> 
 						</suiteXmlFiles> -->
 					<includes>
@@ -49,7 +50,9 @@
 							<value>true</value>
 						</property>
 					</properties>
+
 				</configuration>
+				
 			</plugin>
 
 			<plugin>
@@ -126,14 +129,14 @@
 			<artifactId>cucumber-core</artifactId>
 			<version>1.2.5</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>1.2.5</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
-		
+
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
@@ -141,16 +144,27 @@
 			<!-- <scope>test</scope> -->
 		</dependency>
 
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.23</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+	
 
 
 	</dependencies>
-	
-	<distributionManagement>
-       <repository>
-         <id>SeleniumCucumberMavenSample</id>
-         <name>SeleniumCucumberMavenSample</name>
-         <url>file:///C:/Users/Kaushik/.m2/repository/</url>
-       </repository>
-   </distributionManagement>
-   
 </project>
